@@ -10,3 +10,5 @@
 
 * [Flatten. Разбиение sub-массива на простые элементы parent-массива](https://github.com/letova/wiki-dev/blob/master/js/array/array_flatten.md)
 * [Intersection. Пересечение массивов](https://github.com/letova/wiki-dev/blob/master/js/array/array_intersection.md)
+
+### Структуры данных
