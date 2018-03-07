@@ -18,6 +18,8 @@
 
 ## Обход в глубину (Depth-first search)
 
+### Пример - файловая система
+
 Структура:
 
 ```javascript
@@ -111,5 +113,98 @@ const du = (node) => {
   const result = node.children.map(n => [n.name, calculatefilesSize(n)]);
   result.sort(([, size1], [, size2]) => size2 - size1); //дестракчеринг
   return result;
+};
+```
+
+### Пример - html
+
+Структура:
+
+```javascript
+['html', [
+  ['meta', [
+    ['title', 'hello, hexlet!'],
+  ]],
+  ['body', { class: 'container' }, [
+    ['h1', { class: 'header' }, 'html builder example'],
+    ['div', [
+      ['span', 'span text2'],
+      ['span', 'span text3'],
+    ]],
+  ]],
+]];
+```
+
+Функция, которая возвращает строковое представление html
+
+```javascript
+const buildHtml = (data) => {
+  const tag = data[0];
+  let attr = '', child = '', text= '';
+
+  const getAttr = (obj) => {
+    const keys = Object.keys(obj);
+    const keysArr = keys.reduce((acc, e) => [...acc, ` ${e}="${obj[e]}"`], []);
+    return keysArr.join('');
+  };
+  const getChild = (arr) => {
+    return arr.reduce((acc, e) => acc += buildHtml(e), '');
+  };
+
+  data.slice(1).forEach((el) => {
+    if (el instanceof Array) {
+      child = getChild(el);
+    } else if (el instanceof Object){
+      attr = getAttr(el);
+    } else {
+      text = el;
+    }
+  });
+  
+  return `<${tag}${attr}>${child}${text}</${tag}>`;
+};
+```
+
+С применением полиморфизма на основе объекта
+
+```javascript
+const propertyActions = [
+  {
+    name: 'body',
+    check: arg => typeof arg === 'string',
+  },
+  {
+    name: 'children',
+    check: arg => arg instanceof Array,
+  },
+  {
+    name: 'attributes',
+    check: arg => arg instanceof Object,
+  },
+];
+
+const getPropertyAction = arg => _.find(propertyActions, ({ check }) => check(arg));
+
+const buildAttrString = attrs =>
+  Object.keys(attrs).map(key => ` ${key}="${attrs[key]}"`).join('');
+
+const buildHtml = (data) => {
+  const [first, ...rest] = data;
+  const root = {
+    name: first,
+    attributes: {},
+    body: '',
+    children: [],
+  };
+  const tag = rest
+    .reduce((acc, arg) => {
+      const { name } = getPropertyAction(arg);
+      return { ...acc, [name]: arg };
+    }, root);
+
+  return [`<${tag.name}${buildAttrString(tag.attributes)}>`,
+    `${tag.body}${tag.children.map(buildHtml).join('')}`,
+    `</${tag.name}>`,
+  ].join('');
 };
 ```
