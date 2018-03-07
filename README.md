@@ -12,3 +12,6 @@
 * [Intersection. Пересечение массивов](https://github.com/letova/wiki-dev/blob/master/js/array/array_intersection.md)
 
 ### Структуры данных
+
+* [Trees. Деревья](https://github.com/letova/wiki-dev/blob/master/js/data_structures/trees.md)
+* [Graphs. Графы](https://github.com/letova/wiki-dev/blob/master/js/data_structures/graphs.md)

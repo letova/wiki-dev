@@ -1,5 +1,7 @@
 # Деревья
 
+**Дерево** — это связный ациклический граф.
+
 ```[[1, 4], 2, [3, 8]]```
 
 Корень - сам массив,
@@ -16,20 +18,17 @@
 
 ## Обход в глубину (Depth-first search)
 
-*Структура*
+Структура:
 
 ```javascript
-//directory
-{
-    'children': [{child}, {child}],
-    'type': 'directory'
-}
-
-//file
-{
-    'name': 'package.json',
-    'type': 'file'
-}
+{ name: '/',
+  children: 
+    [ 
+      { name: 'etc', children: [Object], meta: {}, type: 'directory' },
+      { name: 'hosts', meta: {}, type: 'file' } 
+    ],
+  meta: {},
+  type: 'directory' }
 ```
 
 Функция, приводящая к нижнему регистру все имена файлов
