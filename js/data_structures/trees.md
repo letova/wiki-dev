@@ -139,7 +139,7 @@ const du = (node) => {
 
 ```javascript
 const buildHtml = (data) => {
-  const tag = data[0];
+  const [tag, ...rest] = data;
   let attr = '', child = '', text= '';
 
   const getAttr = (obj) => {
@@ -151,7 +151,7 @@ const buildHtml = (data) => {
     return arr.reduce((acc, e) => acc += buildHtml(e), '');
   };
 
-  data.slice(1).forEach((el) => {
+  rest.forEach((el) => {
     if (el instanceof Array) {
       child = getChild(el);
     } else if (el instanceof Object){
