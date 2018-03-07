@@ -27,4 +27,5 @@ const sortDeps = (deps) => {
   };
   const set = Object.keys(deps).reduce(add, []);
   return Object.keys(set);
+//sortDeps(deps) //['mongo', 'thread_safe', 'tzinfo', 'json', 'execjs', 'uglifier', 'redis']
 };
