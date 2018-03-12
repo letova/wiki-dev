@@ -168,6 +168,8 @@ const buildHtml = (data) => {
 С применением полиморфизма на основе объекта
 
 ```javascript
+import _ from 'lodash';
+
 const propertyActions = [
   {
     name: 'body',
@@ -206,5 +208,72 @@ const buildHtml = (data) => {
     `${tag.body}${tag.children.map(buildHtml).join('')}`,
     `</${tag.name}>`,
   ].join('');
+};
+```
+
+С преобразованием структур
+
+```javascript
+import { find, identity } from 'lodash';
+ 
+const singleTagsList = new Set(['hr', 'img', 'br']);
+
+export const render = (data) => { //ast
+  const {
+    name,
+    attributes,
+    body,
+    children,
+  } = data;
+
+  const attrsLine = Object.keys(attributes)
+    .map(key => ` ${key}="${attributes[key]}"`).join('');
+  const content = children.length > 0 ? children.map(render).join('') : body;
+
+  if (singleTagsList.has(name)) {
+    return `<${name}${attrsLine}>`;
+  }
+
+  return `<${name}${attrsLine}>${content}</${name}>`;
+};
+
+const propertyActions = [
+  {
+    name: 'body',
+    check: arg => typeof arg === 'string',
+    process: identity, //функция, возвращающая сам элемент
+  },
+  {
+    name: 'children',
+    check: arg => arg instanceof Array,
+    process: (children, f) => children.map(f),
+  },
+  {
+    name: 'attributes',
+    check: arg => arg instanceof Object,
+    process: identity,
+  },
+];
+
+const getPropertyAction = arg => find(propertyActions, ({ check }) => check(arg));
+//Алгоритм:
+//1.В аргумент попадают разные типы данных -  [], {}, "";
+//2.Find ищет по условию ({ check }) => check(arg) в propertyActions;
+//2.В условии каждый объект деструктуризиется в функцию check
+//4.Если функция check с аргументом возвращает true, то getPropertyAction возвращает весь объект, содержащий этот check
+
+export const parse = (data) => {
+  const [first, ...rest] = data;
+  const root = {
+    name: first,
+    attributes: {},
+    body: '',
+    children: [],
+  };
+  return rest.reduce((acc, arg) => {
+    // arg => {}, [], ''
+    const { name, process } = getPropertyAction(arg); 
+    return { ...acc, [name]: process(arg, parse) };
+  }, root);
 };
 ```

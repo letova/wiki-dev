@@ -16,3 +16,7 @@
 * [Trees. Деревья](https://github.com/letova/wiki-dev/blob/master/js/data_structures/trees.md)
 * [Graphs. Графы](https://github.com/letova/wiki-dev/blob/master/js/data_structures/graphs.md)
 * [Stack. Стек](https://github.com/letova/wiki-dev/blob/master/js/data_structures/stack.md)
+
+### DOM
+
+* [Ellipsis. Обрезает тект с троеточием](https://github.com/letova/wiki-dev/blob/master/js/dom/ellipsis.md)
