@@ -19,4 +19,4 @@
 
 ### DOM
 
-* [Ellipsis. Обрезает тект с троеточием](https://github.com/letova/wiki-dev/blob/master/js/dom/ellipsis.md)
+* [Ellipsis. Обрезанный текст с троеточием в конце](https://github.com/letova/wiki-dev/blob/master/js/dom/ellipsis.md)
