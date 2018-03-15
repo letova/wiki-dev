@@ -2,6 +2,10 @@
 
 Большинство объектов в JS имеют, другой, связанный с ним объект - прототип. Все свойства прототипа доступны в дочернем объекте (prototypal inheritance).
 
+```[[prototype]]``` или ```__proto__``` - ссылка одного объекта на другой;
+```prototype``` - указывает какой использовать прототип при создании объекта. Доступно только у функции.
+```Animal.prototype = x``` - означает, что все объекты класса Animal будут иметь прототип x (объект).
+
 ## Object.create
 
 Запись в прототип
@@ -18,7 +22,7 @@ Object.create(Cat);
 //legs: 4, tail: true, greet: () => "Maaay!", __proto__: Object
 
 Object.create(null)); 
-//no propeties
+//no properties
 ```
 
 Конструктор
@@ -126,8 +130,18 @@ DomesticCat = function(name, color, collar) {
     this.collar = collar;
 };
 
-DomesticCat.prototype = Object.create(Cat.prototype); //constructor указывает на функцию Cat
-DomesticCat.prototype.constructor = DomesticCat; //исправляем указатель constructor
+Object.create(Cat.prototype);
+//__proto__:Object ===>
+//sleep:ƒ (), constructor: ƒ (name, color), __proto__: Object 
+DomesticCat.prototype = Object.create(Cat.prototype);
+//DomesticCat.prototype.constructor ==> ƒ (name, color) 
+DomesticCat.prototype.constructor = DomesticCat;
+//DomesticCat.prototype.constructor ==> ƒ (name, color, collar)
+
+new DomesticCat('tema', 'black', true);
+//collar:true, color:"black", name:"tema", __proto__:Object ===>
+//constructor:ƒ (name, color, collar), __proto__: Object ===>
+//sleep:ƒ (), constructor:ƒ (name, color), __proto__: Object
 ```
 
 Методы
