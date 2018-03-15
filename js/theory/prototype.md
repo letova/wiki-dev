@@ -6,9 +6,9 @@
 
 ```javascript
 const Cat = {
-	legs: 4,
+    legs: 4,
     tail: true,
-	greet: () => "Maaay!"
+    greet: () => "Maaay!"
 };
 
 console.log(Object.create(Cat)); 
@@ -23,14 +23,14 @@ console.log(Object.create(null));
 
 ```javascript
 const Cat = {
-	legs: 4,
+    legs: 4,
     tail: true,
     constructor: function(name, color) {
         this.name = name;
         this.color = color;
         return this;
     },
-	greet: () => 'Maaay!'
+    greet: () => 'Maaay!'
 };
 
 console.log(Object.create(Cat));
@@ -47,14 +47,14 @@ console.log(cat);
 
 ```javascript
 const Cat = {
-	legs: 4,
+    legs: 4,
     tail: true,
     constructor: function(name, color) {
         this.name = name;
         this.color = color;
         return this;
     },
-	greet: () => 'Maaay!'
+    greet: () => 'Maaay!'
 };
 
 const DomesticCat = Object.create(Cat);
