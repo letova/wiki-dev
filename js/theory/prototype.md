@@ -4,6 +4,8 @@
 
 ## Object.create
 
+Запись в прототип
+
 ```javascript
 const Cat = {
     legs: 4,
@@ -11,12 +13,12 @@ const Cat = {
     greet: () => "Maaay!"
 };
 
-console.log(Object.create(Cat)); 
+Object.create(Cat); 
 //__proto__: Object ===> 
 //legs: 4, tail: true, greet: () => "Maaay!", __proto__: Object
 
-console.log(Object.create(null)); 
-//no propetis
+Object.create(null)); 
+//no propeties
 ```
 
 Конструктор
@@ -33,12 +35,11 @@ const Cat = {
     greet: () => 'Maaay!'
 };
 
-console.log(Object.create(Cat));
+Object.create(Cat);
 //__proto__: Object ===>
 //constructor:ƒ (name, color), greet:() => "Maaay!", legs:4, tail:true, __proto__:Object
 
-const cat = Object.create(Cat).constructor('vasya', 'grey');
-console.log(cat);
+Object.create(Cat).constructor('vasya', 'grey');
 //color: "gray", name: "vasya", __proto__: Object ===>
 //constructor:ƒ (name, color), greet:() => "Maaay!", legs:4, tail:true, __proto__:Object
 ```
@@ -64,15 +65,10 @@ DomesticCat.constructor = function(name, color, collar) {
     return this;
 };
 
-const cat = Object.create(DomesticCat).constructor('vasya', 'grey', 'false');
-console.log(cat);
+Object.create(DomesticCat).constructor('vasya', 'grey', 'false');
 //collar:false, color: "gray", name: "vasya", __proto__: Object ===>
 //constructor:ƒ (name, color, collar), __proto__:Object ===>
 //constructor:ƒ (name, color), greet:() => "Maaay!", legs:4, tail:true, __proto__:Object
-
-DomesticCat.sleep = function(){
-    console.log('Sleep...');
-};
 ```
 
 Методы
@@ -83,14 +79,15 @@ Cat.isPrototypeOf(cat); //true
 
 ## New
 
+Конструктор
+
 ```javascript
 const Cat = function(name, color) {
     this.name = name;
     this.color = color;
 };
 
-const cat = new Cat('vasya', 'grey')
-console.log(cat);
+new Cat('vasya', 'grey');
 //color:"grey", name:"vasya", __proto__:Object ===>
 //constructor:ƒ (name, color), __proto__:Object
 ```
@@ -107,8 +104,7 @@ Cat.prototype.sleep = function() {
     console.log('Sleep...');
 };
 
-const cat = new Cat('vasya', 'grey')
-console.log(cat);
+new Cat('vasya', 'grey');
 //color:"grey", name:"vasya", __proto__:Object ===>
 //sleep:ƒ (), constructor:ƒ (name, color), __proto__:Object
 ```
@@ -131,7 +127,7 @@ DomesticCat = function(name, color, collar) {
 };
 
 DomesticCat.prototype = Object.create(Cat.prototype); //constructor указывает на функцию Cat
-DomesticCat.prototype.constructor = DomesticCat; //исправляем утверждение выше
+DomesticCat.prototype.constructor = DomesticCat; //исправляем указатель constructor
 ```
 
 Методы
