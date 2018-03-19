@@ -142,12 +142,36 @@ new DomesticCat('tema', 'black', true);
 //collar:true, color:"black", name:"tema", __proto__:Object ===>
 //constructor:ƒ (name, color, collar), __proto__: Object ===>
 //sleep:ƒ (), constructor:ƒ (name, color), __proto__: Object
+
+DomesticCat.prototype.run = function() {
+    console.log('Runnig...');
+};
+
+//Расширение родителького метода
+DomesticCat.prototype.sleep = function() {
+   // вызвать метод родителя, передав ему текущие аргументы
+   Cat.prototype.sleep.apply(this, arguments);
+   console.log('Zzzz...');
+ }
 ```
+
+```DomesticCat.prototype = Object.create(Cat.prototype)``` присваивается сразу после объявления конструктора, иначе он перезатрёт уже записанные в прототип методы.
 
 Методы
 
 ```javascript
 cat instanceof Cat //true
 Cat.prototype.isPrototypeOf(cat) //true
+```
+
+## Вызов методов через call и apply из прототипа
+
+```javascript
+[].join.call(arguments, " - ");
+
+//Можно вызвать метод напрямую
+Array.prototype.join.call(arguments, " - ");
+
+//Это эффективнее, потому что не создаётся лишний объект массива []
 ```
 
