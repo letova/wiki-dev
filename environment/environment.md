@@ -22,7 +22,7 @@
 
 ## Jest
 
-```npm install --save-dev jest``
+```npm install --save-dev jest```
 
 **package.json**
 ```
