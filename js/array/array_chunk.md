@@ -18,6 +18,7 @@ const getChunked = (array, num) => {
     }
     return result;
 };
+//getChunked(['a', 'b', 'c', 'd'], 2)  // [['a', 'b'], ['c', 'd']]
 ```
 
 *Через цикл*
