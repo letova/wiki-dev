@@ -41,6 +41,43 @@
 * `array_diff(array1, array2)` - расхождение массивов (PHP 4 >= 4.0.1, PHP 5, PHP 7)
 
 * `array_intersect(array1, array2)` - пересечение массивов (PHP 4 >= 4.0.1, PHP 5, PHP 7)
+
+* `array_sum(array)` - вычисляет сумму значений массива (PHP 4 >= 4.0.4, PHP 5, PHP 7)
+
+## Сторонние библиотеки
+
+### Объектные:
+
+* Collect
+* Stringify
+* Carbon
+
+###Использующие только функции:
+
+* [Funct](https://github.com/phpfunct/funct#firstncollection-n--1)
+
+`Collection\last([1, 2, 3]);` // => 3
+
+`Collection\rest([5, 4, 3, 2, 1]);` // => [4, 3, 2, 1]
+
+`Collection\without([1, 2, 1, 0, 3, 1, 4], 0, 1);` // => [2, 3, 4]
+
+`Collection\flattenAll(['a', ['b', ['c', ['d']]]]);` // => ['a', 'b', 'c', 'd']
+
+`Collection\union([1, 2, 3], [101, 2, 1, 10], [2, 1]);` // => [1, 2, 3, 101, 10]
+
+`Collection\findWhere(array1, array2)` -  просматривает массив и возвращает первое значение, совпадающее по всем парам ключ-значения переданным вторым параметром.
+
+`Strings\camelize('data_rate');` //'dataRate'
+
+`Strings\contains('PHP is one of the best languages!', 'one');` // true
+
+`Strings\endsWith("hello jon", 'jon');` // => true
+Проверяет оканчивается ли строчка на подстроку.
+
+`Strings\right('PHP is one of the best languages!', 1)` //= '!'
+
+* Bottomline
  
 ## Структуры данных 
 
