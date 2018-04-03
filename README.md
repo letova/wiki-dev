@@ -29,6 +29,10 @@
 
 * [PHP Wiki](https://github.com/letova/wiki-dev/blob/master/php/php_wiki.md)
 
+### Array
+
+* [Flatten. Разбиение sub-массива на простые элементы parent-массива](https://github.com/letova/wiki-dev/blob/master/php/array/array_flatten.md)
+
 ## Environment
 
 * [GIT Gulp Webpack Babel](https://github.com/letova/wiki-dev/blob/master/environment/environment.md)
