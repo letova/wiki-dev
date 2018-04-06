@@ -52,7 +52,7 @@
 * Stringify
 * Carbon
 
-###Использующие только функции:
+### Использующие только функции:
 
 * [Funct](https://github.com/phpfunct/funct#firstncollection-n--1)
 
