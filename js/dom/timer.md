@@ -2,11 +2,13 @@
 
 ## Отсчет с нуля MM:SS
 
+*HTML*
 ```
 <div class="container"></div>
 <button class="stop-timer">Stop</button>
 ```
 
+*JS*
 ```javascript
 const timer = (container, stopButton) => {
     let secondsCounter = 0;
@@ -21,12 +23,12 @@ const timer = (container, stopButton) => {
         if (seconds < 10) seconds = '0' + seconds;
         
         container.innerHTML = `${minutes}:${seconds}`;
-
-        stopButton.addEventListener('click', function() {
-            clearInterval(interval);
-        });
         
     }, 1000);
+
+    stopButton.addEventListener('click', function() {
+        clearInterval(interval);
+    });
   
 };
 ```
