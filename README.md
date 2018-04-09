@@ -25,8 +25,9 @@
 ### DOM
 
 * [Ellipsis. Обрезанный текст с троеточием в конце](https://github.com/letova/wiki-dev/blob/master/js/dom/ellipsis.md)
+* [Scroll. Скролл к элементам страницы](https://github.com/letova/wiki-dev/blob/master/js/dom/scroll.md)
 * [Timer. Отсчет времени](https://github.com/letova/wiki-dev/blob/master/js/dom/timer.md)
-* [Matrix. Работа с матрицей](https://github.com/letova/wiki-dev/blob/master/js/dom/matrix.md)
+* [Matrix. Создание элементов из матрицы](https://github.com/letova/wiki-dev/blob/master/js/dom/matrix.md)
 
 ## PHP
 
