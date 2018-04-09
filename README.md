@@ -26,6 +26,7 @@
 
 * [Ellipsis. Обрезанный текст с троеточием в конце](https://github.com/letova/wiki-dev/blob/master/js/dom/ellipsis.md)
 * [Timer. Отсчет времени](https://github.com/letova/wiki-dev/blob/master/js/dom/timer.md)
+* [Canvas. 2d изображения](https://github.com/letova/wiki-dev/blob/master/js/dom/canvas.md)
 
 ## PHP
 
