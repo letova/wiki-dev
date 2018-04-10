@@ -50,3 +50,24 @@ const getIntersectionOfSortedArray = (arr1, arr2) => {
 };
 //getIntersectionOfSortedArray([1,2,3], [2,3,4]); //[2,3]
 ```
+
+## Пересечение неотсортированных массивов, сложность O(n+m)
+
+```javascript
+const getIntersection = (left, right) => {
+
+    let seen = left.reduce((acc, el) => {
+        acc[el] = true;
+        return acc;
+    }, {});
+  
+    return right.filter(el => {
+        if (el in seen) {
+            return true;
+        }
+        return false;
+    });
+};
+//expect(func([1, 5, 4, 2], [8, 91, 5, 1, 3])).toEqual([5, 1]);
+//expect(func([1, 5, 3, 2], [7, 12])).toEqual([]);
+```

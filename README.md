@@ -16,6 +16,7 @@
 * [Reverse. Переворот массива](https://github.com/letova/wiki-dev/blob/master/js/array/array_reverse.md)
 * [Sort. Сортировка массива](https://github.com/letova/wiki-dev/blob/master/js/array/array_sort.md)
 * [Chunk. Разбиение массива на чанки](https://github.com/letova/wiki-dev/blob/master/js/array/array_chunk.md)
+* [Unique. Уникальные элементы в массиве](https://github.com/letova/wiki-dev/blob/master/js/array/array_chunk.md)
 
 ### Структуры данных
 
