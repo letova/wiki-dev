@@ -5,6 +5,8 @@
 ### String
 
 * [Capitalize. Первая заглавная буква каждого слова в тексте](https://github.com/letova/wiki-dev/blob/master/js/string/string_capitalize.md)
+* [Reverse. Переворот строки](https://github.com/letova/wiki-dev/blob/master/js/string/string_reverse.md)
+* [Words count. Подсчет слов в предложении](https://github.com/letova/wiki-dev/blob/master/js/string/words_count.md)
 
 ### Array
 
