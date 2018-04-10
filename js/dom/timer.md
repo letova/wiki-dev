@@ -46,6 +46,7 @@ timer(container, stopButton);
 <div class="container"></div>
 ```
 
+*JS*
 ```javascript
 const timer = (container, date) => {
     const endDate = new Date(...date);
