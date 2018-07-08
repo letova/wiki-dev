@@ -1,6 +1,6 @@
-## Вывод значений из инпута
+# 1. Вывод значений из инпута
 
-### Angular
+## Angular
 
 **app.component.html**
 ```html
@@ -39,7 +39,7 @@ import { AppComponent } from './app.component';
 export class AppModule { }
 ```
 
-### React
+## React
 
 **index.html**
 ```html
@@ -78,13 +78,13 @@ class App extends Component {
 render(<App />, document.getElementById('root'));
 ```
 
-## Обработка изменения инпута
+# 2. Обработка изменения инпута
 
-### Angular
+## Angular
 
-#### Метод change
+### Метод change
 
-Срабатывает при потере фокуса:
+Срабатывает при потере фокуса
 
 **app.component.html**
 ```html
@@ -103,7 +103,7 @@ export class AppComponent  {
 }
 ```
 
-#### Метод ngModelChange
+### Метод ngModelChange
 
 Обрабатывает ввод каждого нового символа
 
@@ -112,8 +112,8 @@ export class AppComponent  {
 <input [(ngModel)]="name" (ngModelChange)="onInputChange()" placeholder="Your name" />
 ```
 
-### React
+## React
 
-См. пример выше
+См. пример 1.
 
 
