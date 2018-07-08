@@ -1,6 +1,11 @@
-# 1. Вывод значений из инпута
+# Input. Вывод значений
+
 
 ## Angular
+
+### 1.1
+
+Template-Driven
 
 **app.component.html**
 ```html
@@ -39,7 +44,54 @@ import { AppComponent } from './app.component';
 export class AppModule { }
 ```
 
+
+### 1.2 
+
+Reactive Forms
+
+**app.component.html**
+```html
+<h1>{{ greeting }} {{ name }}!</h1>
+<input [formControl]="input" placeholder="Your name" /> 
+```
+
+**app.component.ts**
+```javascript
+import { Component } from '@angular/core';
+import { FormControl } from '@angular/forms'; // *
+
+@Component({
+  ...
+})
+export class AppComponent  {
+  name = '';
+  greeting = 'Hello';
+  input = new FormControl(); // *
+
+  constructor() { // *
+    this.input.valueChanges.subscribe(val => this.name = val);
+  }
+}
+```
+
+**app.module.ts**
+```javascript
+...
+import { ReactiveFormsModule } from '@angular/forms'; // *
+
+import { AppComponent } from './app.component';
+
+@NgModule({
+  imports:      [ BrowserModule, FormsModule, ReactiveFormsModule ], // *
+  ...
+})
+export class AppModule { }
+```
+
+
 ## React
+
+### 1.1
 
 **index.html**
 ```html
@@ -78,13 +130,14 @@ class App extends Component {
 render(<App />, document.getElementById('root'));
 ```
 
-# 2. Обработка изменения инпута
+# Input. Обработка изменения
+
 
 ## Angular
 
-### Метод change
+### 2.1
 
-Срабатывает при потере фокуса
+Метод ```change``` (cрабатывает при потере фокуса)
 
 **app.component.html**
 ```html
@@ -93,7 +146,7 @@ render(<App />, document.getElementById('root'));
 
 **app.component.ts**
 ```javascript
-<...>
+...
 export class AppComponent  {
     name = '';
 
@@ -103,17 +156,24 @@ export class AppComponent  {
 }
 ```
 
-### Метод ngModelChange
 
-Обрабатывает ввод каждого нового символа
+### 2.2 
+
+Метод ```ngModelChange``` (обрабатывает ввод каждого нового символа)
 
 **app.component.html**
 ```html
 <input [(ngModel)]="name" (ngModelChange)="onInputChange()" placeholder="Your name" />
 ```
 
+
+### 2.3
+
+```Subscribe``` См. пример 1.2 
+
+
 ## React
 
-См. пример 1.
+См. пример 1.1
 
 
