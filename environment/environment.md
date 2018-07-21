@@ -5,30 +5,6 @@
 Создаст package.json с настройками по умолчанию
 ```npm init -y```
 
-## Git
-
-```git init``` - создать репозиторий
-
-```rm -r .git``` - удалить репозиторий
-
-```touch .gitignore``` - создать .gitignore
-
-```git add .``` -  добавить все файлы
-
-```git rm —cached <file>``` - удалить файлы из add
-
-```git status``` - статус
-
-```git commit -m "some change"``` - коммит
-
-```git commit -am "some change"``` - добавить минуя ```git add .```
-
-```git commit —amend``` - прибавить к последнему коммиту
-
-```git remote add origin https://github.com/username/repositoryname.git```
-
-```git push -u origin master```
-
 ## Gulp
 
 ```sudo npm install gulp -g```

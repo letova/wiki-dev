@@ -42,4 +42,5 @@
 
 ## Environment
 
-* [GIT Gulp Webpack Babel](https://github.com/letova/wiki-dev/blob/master/environment/environment.md)
+* [Gulp Webpack Babel](https://github.com/letova/wiki-dev/blob/master/environment/environment.md)
+* [GIT Краткий справочник](https://github.com/letova/wiki-dev/blob/master/environment/git.md)
