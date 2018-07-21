@@ -101,3 +101,73 @@
 ```git show --pretty=fuller``` - информация по последнему коммиту
 
 ```git mv read.txt readme.txt``` - переименовать и добавить в индекс
+
+## Ветки
+
+```git branch``` - просмотр веток
+
+```git branch -v``` - просмотр веток c информацией о последнем коммите
+
+```git branch branch-name``` - создать новую ветку
+
+```git checkout branch-name``` - переключиться на ветку
+
+```git checkout -b branch-name``` - создать и переключиться на ветку
+
+```git checkout -f branch-name``` - переключиться на ветку при незакоммиченных изменениях (изменения будут удалены)
+
+```git checkout -f HEAD``` - стереть все незакоммиченные изменения
+
+```git stash``` - спрятать изменения
+
+```git stash pop``` - вернуть изменения
+
+```git stash list``` - список спрятанных изменений
+
+```git branch -f branch-name commit-num``` - сдвинуть ветку на определенный коммит (выполняется на другой ветке)
+
+```git checkout -b branch-name commit-num``` - аналог
+
+```git branch -f branch-name another-branch-name``` - сдвинуть ветку к последнему коммиту другой ветки
+
+```git checkout commit-num``` - переход на определенный коммит
+
+```git checkout file.txt``` - восстановление файла (отмена изменений)
+
+```git checkout -- master``` - когда файл (master) совпадает с именем ветки
+
+```git checkout commit-num file.txt``` - восстановление файла до определенного коммита
+
+```git cherry-pick commit-num``` - скопировать коммит на текущую ветку
+
+ ### История
+
+```git log``` - просмотр истории коммитов
+
+```git log --oneline``` - коммиты на одной строчке 
+
+```git log branch-name --oneline``` - коммиты на конкретной ветке 
+
+```git show HEAD~``` - информация по предпоследнему коммиту (```HEAD~~``` или ```HEAD~2```  предпредпоследнему)
+
+```git show commit-name``` - информация по определенному коммиту
+
+```git show HEAD~:file.txt``` - просмотреть файл в определенном коммите
+
+```git show :/search-word``` - найти по слово
+
+### Слияние
+
+```
+git checkout master
+git merge branch-name
+```
+добавить в основную ветку master изменения с другой ветки
+
+```.git/ORIG_HEAD``` - посмотреть номер последнего коммита master до изменений
+
+```git branch -f master ORIG_HEAD``` - вернуть в исходное состояние
+
+### Удаление
+
+```git branch -d branch-name``` - удалить ветку (только если ветка объеденена с текущей)
