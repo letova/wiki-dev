@@ -12,11 +12,16 @@
 *JS*
 ```javascript
 const renderMatrix = (canvas, matrix, size, borderSize) => {
+    const numCols = matrix[0].length;
+    const numRows = matrix.length;
+
     const context = canvas.getContext('2d');
+    canvas.width = numCols * size + numCols * borderSize;
+    canvas.height = numRows * size + numRows * borderSize;
     
     matrix.forEach((row, i) => row.forEach((el, j) => {
-        const x = (j + 1) * (size + borderSize);
-        const y = (i + 1) * (size + borderSize);
+        const x = j * (size + borderSize);
+        const y = i * (size + borderSize);
         
         context.fillStyle = el;
         context.fillRect(x, y, size, size);
