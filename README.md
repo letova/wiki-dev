@@ -31,6 +31,7 @@
 * [Scroll. Скролл к элементам страницы](https://github.com/letova/wiki-dev/blob/master/js/dom/scroll.md)
 * [Timer. Отсчет времени](https://github.com/letova/wiki-dev/blob/master/js/dom/timer.md)
 * [Matrix. Создание элементов из матрицы](https://github.com/letova/wiki-dev/blob/master/js/dom/matrix.md)
+* [Browser detect. Определение браузера](https://github.com/letova/wiki-dev/blob/master/js/dom/browser_detect.md)
 
 ## PHP
 
