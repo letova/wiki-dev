@@ -227,3 +227,90 @@ git merge branch-name
 ```git clean -f``` - удаление не отслеживаемых файлов
 
 ```git clean -df``` - удаление не отслеживаемых файлов и директорий
+
+## Сравнение
+
+```git diff commit-name commit-name``` - сравнение коммитов
+
+```git diff commit-name:file.txt commit-name:file.txt``` - сравнение file.txt из разных коммитов
+
+```git diff commit-name..commit-name``` - аналог
+
+```git diff master...branch-name``` - что изменилось в ветке c момента расхождения с master
+
+```git diff``` - изменения в рабочей директории с индексом (игнорирует неотслеживаемые файлы)
+
+```git diff commit-name``` - изменения в рабочей директории с коммитом)
+
+```git diff HEAD``` - изменения в рабочей директории с момента последнего коммита
+
+```git diff --cached``` - изменения индекса с момента последнего коммита
+
+```git commit -v``` - показывает изменения, которые хотим закоммитить
+
+```git diff file.txt``` - вывод разницы конкретного файла
+
+```git diff commit-name commit-name file.txt``` - сравнение file.txt из разных коммитов
+
+```git diff --name-only commit-name commit-name``` - выводит имена файлов, которые различаются
+
+```git diff --word-diff``` - сравнение по словам
+
+```.gitattributes``` - настройки сравнения по словам (например: *.html diff=html)
+
+```.git/config``` - создание своих настроек 
+
+```
+[diff "markdown"]
+    # POSIX extended - синтаксис регулярных выражений
+    xfuncname = "^#[[:space:]]+.+$"
+    # Проверка для *word*
+    wordRegex = "\\*+|[^[:space:]*]+"
+    # Или любой символ - независимое слово (wordRegex = .)
+```
+пример для markdown
+ 
+```git diff --word-diff-regex``` - передать регулярное выражение
+
+##  История
+
+```git log``` - просмотр истории (или ```git log --pretty=medium```)
+
+```git log --pretty=oneline``` - одной строкой
+
+```git log --pretty=oneline --abbrev-commit``` - скоращенный номер коммита (или ```git log --oneline```)
+
+```
+git log --pretty=format:'%h %cd | %s%d [%an]'
+commit-name date | commit-description [author]
+
+git log --pretty=format:'%h %cd | %s%d [%an] --date=short'
+```
+
+```git log -p``` - добаляет diff к каждому коммиту
+
+```git log branch-name``` - вывод коммитов из ветки
+
+```git log branch-name branch-name --graph``` - вывод коммитов из веток со структурой
+
+```git log --all --graph``` - вывод стуктуры веток
+
+```git log branch-name ^branch-name2``` - кроме коммитов из ветки 2 (или ```git log branch-name2..branch-name```)
+
+```git log branch-name branch-name2``` - выведет уникальные коммиты
+
+```git log branch-name branch-name2 --boundary``` - с пограничным коммитом
+
+```git log file.txt``` - выведет коммиты где изменялся указанный файл
+
+```git log --grep fix``` - вывод всех коммитов со словом fix в описании
+
+```git log --Gfix``` -  поиск по изменениям
+
+```git log --L 2,7:file.txt``` - вывод всех коммитов с изменениями со 2 по 7 строку файла
+
+```git log --L '/<nav>/','/<\/nav>/':file.txt``` - с регулярными выражениями
+
+```git log --before '2018-06-06'``` -  до определенной даты
+
+```git blame``` - автор кода
