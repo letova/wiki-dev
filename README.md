@@ -46,3 +46,4 @@
 
 * [Gulp Webpack Babel](https://github.com/letova/wiki-dev/blob/master/environment/environment.md)
 * [GIT Краткий справочник](https://github.com/letova/wiki-dev/blob/master/environment/git.md)
+* [Gulp 4 + Webpack](https://github.com/letova/wiki-dev/blob/master/environment/gulp_4_webpack.md)
