@@ -1,5 +1,7 @@
 # Gulp 4 + Webpack
 
+*gulpfile.js*
+
 ```javascript
 const { src, dest, watch, series, parallel } = require('gulp');
 
@@ -86,4 +88,31 @@ exports.css = css;
 exports.img = img;
 exports.observe = observe;
 exports.default = series(clean, parallel(html, css, js, img), serve, observe);
+```
+
+*webpack.config.js*
+
+```javascript
+const path = require('path');
+
+module.exports = {
+ devtool: 'source-map',
+ entry: './src/assets/js/index.js',
+ output: {
+   path: path.resolve(__dirname, './dist/assets/js'),
+   filename: 'index.min.js'
+ },
+ module: {
+   rules: [
+     {
+       test: /\.js$/,
+       exclude: /node_modules/,
+       use: {
+         loader: 'babel-loader',
+         options: {presets: ['env']}
+       }
+     }
+   ]
+ }
+};
 ```
